@@ -1,6 +1,6 @@
 ---
 - name: Gather and display facts
-  hosts: "workstations"
+  hosts: localhost
   gather_facts: false
   become: yes
   vars:
