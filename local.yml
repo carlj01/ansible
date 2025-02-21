@@ -1,0 +1,40 @@
+---
+- name: Gather and display facts
+  hosts: "workstations"
+  gather_facts: false
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Get updates
+      ansible.builtin.apt:
+        update_cache: true
+        autoremove: true
+        autoclean: true
+
+    - name: Update packages
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+
+    - name: Install apt packages
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - git
+        - qemu-guest-agent
+        - openssh-server
+        - neovim
+        - chromium
+        - deja-dup
+
+    - name: Install flatpak packates
+      flatpak:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - com.brave.Browser
+        - org.freecad.FreeCAD
+
