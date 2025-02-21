@@ -1,0 +1,20 @@
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - git
+    - qemu-guest-agent
+    - openssh-server
+    - neovim
+    - chromium
+    - deja-dup
+
+- name: Install flatpak packates
+  flatpak:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - com.brave.Browser
+    - org.freecad.FreeCAD
+
