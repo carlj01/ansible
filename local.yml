@@ -15,3 +15,4 @@
   tasks: 
   - ansible.builtin.include_tasks:
       file: tasks/packages.yml
+      file: tasks/install_ansible.yml
