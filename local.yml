@@ -13,5 +13,5 @@
       changed_when: false
     
   tasks: 
-  - ansible.builtin.include_role:
+  - ansible.builtin.include_tasks
       name: tasks/packages.yml
