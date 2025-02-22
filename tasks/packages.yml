@@ -10,7 +10,7 @@
     - chromium
     - deja-dup
 
-- name: Install flatpak packates
+- name: Install flatpak packages
   flatpak:
     name: "{{ item }}"
     state: present
