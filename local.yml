@@ -14,5 +14,7 @@
     
   tasks: 
   - ansible.builtin.include_tasks:
-      file: tasks/packages.yml
-      file: tasks/install_ansible.yml
+      file: "{{ item }}"
+    With_items:
+      - tasks/packages.yml
+      - tasks/install_ansible.yml
