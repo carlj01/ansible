@@ -10,10 +10,9 @@
     state: latest
 
 - name: Install flatpak packages
-  flatpak:
-    name: "{{ item }}"
-    state: present
-  with_items:
+  ansible.builtin.flatpak:
+    name: 
     - com.brave.Browser
     - org.freecad.FreeCAD
+    state: present
 
